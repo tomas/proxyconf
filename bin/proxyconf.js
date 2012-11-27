@@ -5,10 +5,10 @@ function abort(msg){
 }
 
 var proxyconf = require('./..');
-var type = process.argv[2] || 'http';
-var method = process.argv[3] || 'get';
+var method = process.argv[2] || 'get';
+var type = process.argv[3] || 'http';
 
 proxyconf[method](type, function(err, out){
   if (err) return abort(err.message);
-  console.log(out);
+  if (out) console.log(out);
 });
